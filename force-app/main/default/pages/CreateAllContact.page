@@ -1,0 +1,44 @@
+<apex:page controller="CreateAllContact" >    
+    <apex:form >
+<apex:pageBlock >
+    <apex:variable value="{!0}" var="rowNumber" />
+        <div align="center" >
+         <apex:commandButton action="{! AddIt}" value="Add"  reRender="newItems,panelWithVar" />
+        <apex:commandButton action="{! deleteRow}" value="Remove" immediate="true"/>
+        <apex:commandButton action="{! SaveIt}" value="Save"/>
+        <apex:commandButton action="{! CancelIt}" value="Cancel" immediate="true"/>
+        </div>   
+    <apex:outputPanel id="panelWithVar">
+    <apex:variable value="{!0}" var="rowNumber" />
+</apex:outputPanel>
+       <apex:pageBlockTable value="{!cont1}" var="c" id="newItems">
+           <apex:column headerValue="Account Name">
+                    <apex:outputText value="{!acct1.Name}"/>              
+                    </apex:column>
+                <apex:column headerValue="First Name">
+                    <apex:inputField value="{!c.FirstName}"/>              
+                    </apex:column>
+            		<apex:column headerValue="Last Name">
+                    <apex:inputField value="{!c.LastName}"/> 
+                    <apex:variable var="rowNumber" value="{!rowNumber + 1}" />
+                    </apex:column>
+                     <apex:column headerValue="Title">
+                     <apex:inputField value="{!c.Title}"/>
+                     </apex:column>
+                      <apex:column headerValue="Email">
+                      <apex:inputField value="{!c.Email}"/>
+                      </apex:column>
+                       <apex:column headerValue="Phone">
+                       <apex:inputField value="{!c.Phone}"/>
+                </apex:column>
+    <!--<apex:column width="5%">
+        <apex:commandButton action="{! removeNewObject}" value="Remove" reRender="newItems,panelWithVar">
+            <apex:param name="p1" value="{!rowNumber}" assignTo="{!numberOfRowToRemove}"/>
+        </apex:commandButton>
+    </apex:column>-->
+            </apex:pageBlockTable>
+
+</apex:pageBlock>
+</apex:form>
+    
+</apex:page>
