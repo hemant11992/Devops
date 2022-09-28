@@ -7,4 +7,9 @@ public with sharing calculator{
     {
         return a+b;
     } 
+
+    public Integer sub(Integer a,Integerb)
+    {
+        return a+b;
+    } 
 }
